@@ -149,7 +149,7 @@
       console.timeEnd("");
     });
     document.getElementById("trace").addEventListener("click", function() {
-      console.trace();
+      deep();
     });
     document.getElementById("trigger").addEventListener("click", function() {
       JSON.parse(document.getAnimations());
@@ -176,6 +176,16 @@ window.TrackJS && TrackJS.install({
       }
       throw new SetUpError("no ID: ending");
     }
+  function deep(){
+    deeper();
+  }
+  function deeper(){
+    deepest();
+
+  }
+  function deepest(){
+    console.trace();
+  }
   </script>
 </body>
 
