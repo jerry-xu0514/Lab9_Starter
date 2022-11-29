@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -155,6 +155,27 @@
       console.warn("warn!");
     });
 
+    class SetUpError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "SetUpError";
+  }
+}
+window.TrackJS && TrackJS.install({ 
+    token: "09187ba1546841e0bde7e3cb0729c950"
+    // for more configuration options, see https://docs.trackjs.com
+  });
+
+    try {
+      document.getElementById("ending").addEventListener("click", function() {
+        console.timeEnd("");
+      })
+    } catch (error) {
+      if(error instanceof TypeError){
+        console.log("ending does not exist")
+      }
+      throw new SetUpError("no ID: ending");
+    }
   </script>
 </body>
 
