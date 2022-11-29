@@ -152,7 +152,7 @@
       console.trace();
     });
     document.getElementById("trigger").addEventListener("click", function() {
-      console.warn("warn!");
+      JSON.parse(document.getAnimations());
     });
 
     class SetUpError extends Error {
